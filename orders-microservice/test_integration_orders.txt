@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-7.4.0, pluggy-1.6.0 -- /usr/local/bin/python3.11
+cachedir: .pytest_cache
+django: version: 4.2, settings: orders_project.settings (from ini)
+rootdir: /app
+configfile: pytest.ini
+plugins: cov-7.0.0, django-4.7.0
+collecting ... collected 4 items
+
+tests/integration/test_orders_integration.py::TestOrderAPI::test_line_hinzufuegen PASSED [ 25%]
+tests/integration/test_orders_integration.py::TestOrderAPI::test_note_hinzufuegen PASSED [ 50%]
+tests/integration/test_orders_integration.py::TestOrderAPI::test_order_erstellen PASSED [ 75%]
+tests/integration/test_orders_integration.py::TestOrderAPI::test_order_status_aendern PASSED [100%]
+
+========================= 4 passed, 1 warning in 1.86s =========================

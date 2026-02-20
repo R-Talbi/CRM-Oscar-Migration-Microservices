@@ -1,0 +1,61 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-7.4.0, pluggy-1.6.0 -- /usr/local/bin/python3.11
+cachedir: .pytest_cache
+django: version: 4.2, settings: orders_project.settings (from ini)
+rootdir: /app
+configfile: pytest.ini
+plugins: cov-7.0.0, django-4.7.0
+collecting ... collected 34 items
+
+tests/integration/test_orders_integration.py::TestOrderAPI::test_line_hinzufuegen PASSED [  2%]
+tests/integration/test_orders_integration.py::TestOrderAPI::test_note_hinzufuegen PASSED [  5%]
+tests/integration/test_orders_integration.py::TestOrderAPI::test_order_erstellen PASSED [  8%]
+tests/integration/test_orders_integration.py::TestOrderAPI::test_order_status_aendern PASSED [ 11%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_status_transition_pending_to_processing PASSED [ 14%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_status_transition_pending_to_cancelled PASSED [ 17%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_status_transition_pending_to_shipped_not_allowed PASSED [ 20%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_status_transition_processing_to_shipped PASSED [ 23%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_status_transition_processing_to_cancelled PASSED [ 26%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_status_transition_shipped_to_delivered PASSED [ 29%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_status_transition_delivered_to_refunded PASSED [ 32%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_status_transition_cancelled_is_final PASSED [ 35%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_can_cancel_pending PASSED [ 38%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_can_cancel_shipped_not_allowed PASSED [ 41%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_can_ship_processing PASSED [ 44%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_can_ship_pending_not_allowed PASSED [ 47%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_can_refund_delivered PASSED [ 50%]
+tests/unit/test_orders_business_logik.py::TestOrderStatusTransitions::test_can_refund_pending_not_allowed PASSED [ 52%]
+tests/unit/test_orders_business_logik.py::TestOrderOperations::test_cancel_order_success PASSED [ 55%]
+tests/unit/test_orders_business_logik.py::TestOrderOperations::test_cancel_order_not_allowed PASSED [ 58%]
+tests/unit/test_orders_business_logik.py::TestOrderOperations::test_ship_order_success PASSED [ 61%]
+tests/unit/test_orders_business_logik.py::TestOrderOperations::test_ship_order_not_allowed PASSED [ 64%]
+tests/unit/test_orders_business_logik.py::TestOrderOperations::test_deliver_order_success PASSED [ 67%]
+tests/unit/test_orders_business_logik.py::TestOrderOperations::test_refund_order_success PASSED [ 70%]
+tests/unit/test_orders_business_logik.py::TestOrderValidation::test_validate_order_creation_with_customer PASSED [ 73%]
+tests/unit/test_orders_business_logik.py::TestOrderValidation::test_validate_order_creation_with_guest_email PASSED [ 76%]
+tests/unit/test_orders_business_logik.py::TestOrderValidation::test_validate_order_creation_no_customer PASSED [ 79%]
+tests/unit/test_orders_business_logik.py::TestOrderValidation::test_validate_order_creation_no_lines PASSED [ 82%]
+tests/unit/test_orders_business_logik.py::TestOrderValidation::test_validate_email_valid PASSED [ 85%]
+tests/unit/test_orders_business_logik.py::TestOrderValidation::test_validate_email_invalid PASSED [ 88%]
+tests/unit/test_orders_business_logik.py::TestOrderCalculations::test_calculate_order_total PASSED [ 91%]
+tests/unit/test_orders_business_logik.py::TestOrderCalculations::test_calculate_total_tax PASSED [ 94%]
+tests/unit/test_orders_business_logik.py::TestOrderCalculations::test_calculate_num_items PASSED [ 97%]
+tests/unit/test_orders_business_logik.py::TestOrderCalculations::test_calculate_order_summary PASSED [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.11.14-final-0 _______________
+
+Name                                Stmts   Miss  Cover
+-------------------------------------------------------
+orders/__init__.py                      0      0   100%
+orders/admin.py                        13      0   100%
+orders/migrations/0001_initial.py       6      0   100%
+orders/migrations/__init__.py           0      0   100%
+orders/models.py                      159     10    94%
+orders/serializers.py                  40      0   100%
+orders/services.py                    154     39    75%
+orders/urls.py                          6      0   100%
+orders/views.py                        45     12    73%
+-------------------------------------------------------
+TOTAL                                 423     61    86%
+======================== 34 passed, 1 warning in 3.18s =========================

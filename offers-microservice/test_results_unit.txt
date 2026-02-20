@@ -1,0 +1,42 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.0.2, pluggy-1.6.0 -- C:\Users\zakar\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+django: version: 5.2.9, settings: offers_project.settings (from ini)
+rootdir: C:\Users\zakar\Migration_Projekt\OScar\microservices-migration\offers-microservice
+configfile: pytest.ini
+plugins: anyio-4.12.0, Faker-40.1.0, cov-7.0.0, django-4.12.0
+collecting ... collected 31 items
+
+tests/unit/test_Business_logik.py::TestDiscountCalculation::test_percentage_discount_normal_case PASSED [  3%]
+tests/unit/test_Business_logik.py::TestDiscountCalculation::test_percentage_discount_50_percent PASSED [  6%]
+tests/unit/test_Business_logik.py::TestDiscountCalculation::test_fixed_discount_normal PASSED [  9%]
+tests/unit/test_Business_logik.py::TestDiscountCalculation::test_fixed_discount_exceeds_price PASSED [ 12%]
+tests/unit/test_Business_logik.py::TestDiscountCalculation::test_multibuy_discount_two_items PASSED [ 16%]
+tests/unit/test_Business_logik.py::TestDiscountCalculation::test_discount_with_none_value PASSED [ 19%]
+tests/unit/test_Business_logik.py::TestDiscountCalculation::test_discount_with_zero_value PASSED [ 22%]
+tests/unit/test_Business_logik.py::TestDiscountCalculation::test_multibuy_with_zero_quantity PASSED [ 25%]
+tests/unit/test_Business_logik.py::TestConditionChecking::test_count_condition_satisfied PASSED [ 29%]
+tests/unit/test_Business_logik.py::TestConditionChecking::test_count_condition_not_satisfied PASSED [ 32%]
+tests/unit/test_Business_logik.py::TestConditionChecking::test_count_condition_exactly_met PASSED [ 35%]
+tests/unit/test_Business_logik.py::TestConditionChecking::test_value_condition_satisfied PASSED [ 38%]
+tests/unit/test_Business_logik.py::TestConditionChecking::test_value_condition_not_satisfied PASSED [ 41%]
+tests/unit/test_Business_logik.py::TestConditionChecking::test_condition_with_none_value PASSED [ 45%]
+tests/unit/test_Business_logik.py::TestOfferAvailability::test_offer_available_open_status PASSED [ 48%]
+tests/unit/test_Business_logik.py::TestOfferAvailability::test_offer_not_available_suspended PASSED [ 51%]
+tests/unit/test_Business_logik.py::TestOfferAvailability::test_offer_not_started_yet PASSED [ 54%]
+tests/unit/test_Business_logik.py::TestOfferAvailability::test_offer_already_ended PASSED [ 58%]
+tests/unit/test_Business_logik.py::TestOfferAvailability::test_offer_in_active_period PASSED [ 61%]
+tests/unit/test_Business_logik.py::TestBenefitAndCondition::test_calculate_benefit_percentage PASSED [ 64%]
+tests/unit/test_Business_logik.py::TestBenefitAndCondition::test_calculate_benefit_absolute PASSED [ 67%]
+tests/unit/test_Business_logik.py::TestBenefitAndCondition::test_calculate_benefit_multibuy PASSED [ 70%]
+tests/unit/test_Business_logik.py::TestBenefitAndCondition::test_condition_count_satisfied PASSED [ 74%]
+tests/unit/test_Business_logik.py::TestBenefitAndCondition::test_condition_value_satisfied PASSED [ 77%]
+tests/unit/test_Business_logik.py::TestMaxDiscountLimits::test_no_max_discount_limit PASSED [ 80%]
+tests/unit/test_Business_logik.py::TestMaxDiscountLimits::test_discount_under_limit PASSED [ 83%]
+tests/unit/test_Business_logik.py::TestMaxDiscountLimits::test_discount_exceeds_limit PASSED [ 87%]
+tests/unit/test_Business_logik.py::TestMaxDiscountLimits::test_discount_exactly_at_limit PASSED [ 90%]
+tests/unit/test_Business_logik.py::TestCompleteOfferFlow::test_successful_offer_application PASSED [ 93%]
+tests/unit/test_Business_logik.py::TestCompleteOfferFlow::test_failed_offer_condition_not_met PASSED [ 96%]
+tests/unit/test_Business_logik.py::TestCompleteOfferFlow::test_offer_with_max_discount_applied PASSED [100%]
+
+============================= 31 passed in 0.38s ==============================

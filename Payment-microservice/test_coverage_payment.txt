@@ -1,0 +1,55 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-7.4.0, pluggy-1.6.0 -- /usr/local/bin/python3.11
+cachedir: .pytest_cache
+django: version: 4.2, settings: payment_project.settings (from ini)
+rootdir: /app
+configfile: pytest.ini
+plugins: cov-7.0.0, django-4.7.0
+collecting ... collected 28 items
+
+tests/integration/test_integration.py::TestSourceAPI::test_allocate_api PASSED [  3%]
+tests/integration/test_integration.py::TestSourceAPI::test_debit_api PASSED [  7%]
+tests/integration/test_integration.py::TestSourceAPI::test_refund_api PASSED [ 10%]
+tests/integration/test_integration.py::TestSourceAPI::test_source_erstellen PASSED [ 14%]
+tests/integration/test_integration.py::TestBankcardAPI::test_bankcard_erstellen PASSED [ 17%]
+tests/unit/test_payment_business_logik.py::TestPaymentCalculator::test_balance_normal PASSED [ 21%]
+tests/unit/test_payment_business_logik.py::TestPaymentCalculator::test_balance_all_used PASSED [ 25%]
+tests/unit/test_payment_business_logik.py::TestPaymentCalculator::test_balance_with_none PASSED [ 28%]
+tests/unit/test_payment_business_logik.py::TestPaymentCalculator::test_available_for_refund PASSED [ 32%]
+tests/unit/test_payment_business_logik.py::TestPaymentCalculator::test_available_for_refund_nothing_refunded PASSED [ 35%]
+tests/unit/test_payment_business_logik.py::TestPaymentValidator::test_amount_valid PASSED [ 39%]
+tests/unit/test_payment_business_logik.py::TestPaymentValidator::test_amount_zero PASSED [ 42%]
+tests/unit/test_payment_business_logik.py::TestPaymentValidator::test_amount_negative PASSED [ 46%]
+tests/unit/test_payment_business_logik.py::TestPaymentValidator::test_amount_none PASSED [ 50%]
+tests/unit/test_payment_business_logik.py::TestPaymentValidator::test_can_debit_enough_balance PASSED [ 53%]
+tests/unit/test_payment_business_logik.py::TestPaymentValidator::test_can_debit_exact_balance PASSED [ 57%]
+tests/unit/test_payment_business_logik.py::TestPaymentValidator::test_can_debit_not_enough PASSED [ 60%]
+tests/unit/test_payment_business_logik.py::TestPaymentValidator::test_can_refund_available PASSED [ 64%]
+tests/unit/test_payment_business_logik.py::TestPaymentValidator::test_can_refund_too_much PASSED [ 67%]
+tests/unit/test_payment_business_logik.py::TestPaymentService::test_payment_summary PASSED [ 71%]
+tests/unit/test_payment_business_logik.py::TestPaymentService::test_check_debit_ok PASSED [ 75%]
+tests/unit/test_payment_business_logik.py::TestPaymentService::test_check_debit_not_ok PASSED [ 78%]
+tests/unit/test_payment_business_logik.py::TestPaymentService::test_check_refund_ok PASSED [ 82%]
+tests/unit/test_payment_business_logik.py::TestPaymentService::test_check_refund_not_ok PASSED [ 85%]
+tests/unit/test_payment_business_logik.py::TestPaymentService::test_hide_card_number PASSED [ 89%]
+tests/unit/test_payment_business_logik.py::TestPaymentService::test_hide_card_number_with_dashes PASSED [ 92%]
+tests/unit/test_payment_business_logik.py::TestPaymentService::test_hide_card_number_already_hidden PASSED [ 96%]
+tests/unit/test_payment_business_logik.py::TestPaymentService::test_hide_card_number_empty PASSED [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.11.14-final-0 _______________
+
+Name                                 Stmts   Miss  Cover
+--------------------------------------------------------
+payment/__init__.py                      0      0   100%
+payment/admin.py                        15      0   100%
+payment/migrations/0001_initial.py       7      0   100%
+payment/migrations/__init__.py           0      0   100%
+payment/models.py                       77      5    94%
+payment/serializers.py                  22      0   100%
+payment/services.py                     67      7    90%
+payment/urls.py                          8      0   100%
+payment/views.py                        53     10    81%
+--------------------------------------------------------
+TOTAL                                  249     22    91%
+======================== 28 passed, 1 warning in 2.83s =========================

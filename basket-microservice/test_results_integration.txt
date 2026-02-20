@@ -1,0 +1,23 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-9.0.2, pluggy-1.6.0 -- /usr/local/bin/python3.11
+cachedir: .pytest_cache
+django: version: 4.2, settings: basket_project.settings (from ini)
+rootdir: /app
+configfile: pytest.ini
+plugins: cov-7.0.0, django-4.12.0
+collecting ... collected 6 items
+
+tests/integration/test_api.py::TestBasketAPI::test_basket_erstellen PASSED [ 16%]
+tests/integration/test_api.py::TestBasketAPI::test_basket_freeze_api PASSED [ 33%]
+tests/integration/test_api.py::TestBasketAPI::test_basket_liste PASSED   [ 50%]
+tests/integration/test_api.py::TestBasketAPI::test_basket_submit_api PASSED [ 66%]
+tests/integration/test_api.py::TestBasketAPI::test_basket_total_api PASSED [ 83%]
+tests/integration/test_api.py::TestBasketAPI::test_produkt_hinzufuegen_api PASSED [100%]
+
+=============================== warnings summary ===============================
+../usr/local/lib/python3.11/site-packages/django/conf/__init__.py:241
+  /usr/local/lib/python3.11/site-packages/django/conf/__init__.py:241: RemovedInDjango50Warning: The default value of USE_TZ will change from False to True in Django 5.0. Set USE_TZ to False in your project settings if you want to keep the current default behavior.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========================= 6 passed, 1 warning in 1.51s =========================

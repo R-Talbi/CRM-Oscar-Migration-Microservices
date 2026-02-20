@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.14, pytest-7.4.0, pluggy-1.6.0 -- /usr/local/bin/python3.11
+cachedir: .pytest_cache
+django: version: 4.2, settings: payment_project.settings (from ini)
+rootdir: /app
+configfile: pytest.ini
+plugins: cov-7.0.0, django-4.7.0
+collecting ... collected 5 items
+
+tests/integration/test_integration.py::TestSourceAPI::test_allocate_api PASSED [ 20%]
+tests/integration/test_integration.py::TestSourceAPI::test_debit_api PASSED [ 40%]
+tests/integration/test_integration.py::TestSourceAPI::test_refund_api PASSED [ 60%]
+tests/integration/test_integration.py::TestSourceAPI::test_source_erstellen PASSED [ 80%]
+tests/integration/test_integration.py::TestBankcardAPI::test_bankcard_erstellen PASSED [100%]
+
+========================= 5 passed, 1 warning in 1.77s =========================

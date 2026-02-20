@@ -1,0 +1,109 @@
+2026/02/10 17:43:15 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:43:16 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:43:17 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:43:17 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:43:19 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:43:20 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:43:24 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:43:31 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:43:44 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:44:10 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:45:02 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:46:02 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:47:02 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:48:03 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:49:03 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:50:03 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:51:04 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:52:04 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:53:04 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:54:05 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:55:05 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:56:05 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:57:06 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:58:06 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 17:59:06 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 18:00:07 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/10 18:01:07 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 09:59:16 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:00:16 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:01:17 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:02:17 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:03:17 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:04:18 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:05:18 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:06:18 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:07:19 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:08:19 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:09:19 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:10:20 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:11:20 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:12:20 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:13:21 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:14:21 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:15:22 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:16:22 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:17:22 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:18:23 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:19:23 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:20:24 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:21:24 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:22:24 [emerg] 1#1: invalid percent value "0%" in /etc/nginx/nginx.conf:28
+2026/02/11 10:31:33 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:31:33 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:31:34 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:31:35 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:31:36 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:31:38 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:31:42 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:31:48 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:32:02 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:32:28 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:33:19 [emerg] 1#1: "events" directive is duplicate in /etc/nginx/nginx.conf:80
+2026/02/11 10:48:01 [error] 30#30: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "HEAD /api/offers/ HTTP/1.1", upstream: "http://192.168.65.254:8000/api/offers/", host: "localhost"
+2026/02/11 10:48:01 [error] 30#30: *3 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "HEAD /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/api/offers/", host: "localhost"
+2026/02/11 18:05:36 [notice] 31#31: signal process started
+2026/02/11 18:07:19 [error] 37#37: *11 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "HEAD /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "localhost"
+2026/02/11 18:14:03 [error] 37#37: *32 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/static/rest_framework/css/bootstrap-tweaks.css", host: "localhost", referrer: "http://localhost/api/offers/"
+2026/02/11 18:31:32 [error] 37#37: *57 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /static/rest_framework/css/prettify.css HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/static/rest_framework/css/prettify.css", host: "localhost", referrer: "http://localhost/api/offers/"
+2026/02/11 18:32:34 [error] 37#37: *57 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "localhost"
+2026/02/11 18:32:34 [error] 37#37: *52 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /static/rest_framework/css/prettify.css HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/static/rest_framework/css/prettify.css", host: "localhost", referrer: "http://localhost/api/offers/"
+2026/02/11 23:09:04 [notice] 38#38: signal process started
+2026/02/11 23:11:31 [error] 44#44: *84 upstream prematurely closed connection while reading response header from upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://192.168.65.254:8002/api/basket/", host: "localhost"
+2026/02/11 23:11:31 [error] 44#44: *84 connect() to [fdc4:f303:9324::254]:8002 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8002/api/basket/", host: "localhost"
+2026/02/11 23:11:52 [error] 44#44: *87 connect() to [fdc4:f303:9324::254]:8002 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8002/api/basket/", host: "localhost"
+2026/02/11 23:11:52 [error] 44#44: *87 upstream prematurely closed connection while reading response header from upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://192.168.65.254:8002/api/basket/", host: "localhost"
+2026/02/11 23:12:16 [error] 44#44: *91 connect() to [fdc4:f303:9324::254]:8002 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8002/api/basket/", host: "localhost"
+2026/02/11 23:12:16 [error] 44#44: *91 upstream prematurely closed connection while reading response header from upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://192.168.65.254:8002/api/basket/", host: "localhost"
+2026/02/11 23:18:47 [error] 44#44: *94 connect() to [fdc4:f303:9324::254]:8002 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8002/api/basket/", host: "localhost"
+2026/02/11 23:19:35 [error] 44#44: *97 connect() to [fdc4:f303:9324::254]:8002 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8002/api/basket/", host: "localhost"
+2026/02/11 23:26:09 [error] 44#44: *105 connect() to [fdc4:f303:9324::254]:8002 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8002/api/basket/", host: "localhost"
+2026/02/11 23:45:03 [error] 44#44: *116 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "host.docker.internal"
+2026/02/11 23:45:04 [error] 44#44: *122 connect() to [fdc4:f303:9324::254]:8002 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8002/api/basket/", host: "host.docker.internal"
+2026/02/11 23:47:27 [notice] 45#45: signal process started
+2026/02/11 23:50:08 [error] 51#51: *132 connect() to [fdc4:f303:9324::254]:8002 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/basket/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8002/api/basket/", host: "host.docker.internal"
+2026/02/11 23:50:08 [error] 51#51: *135 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "host.docker.internal"
+2026/02/11 23:58:07 [error] 51#51: *151 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/static/rest_framework/css/bootstrap-tweaks.css", host: "localhost", referrer: "http://localhost/api/basket/"
+2026/02/11 23:58:59 [error] 51#51: *161 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "localhost"
+2026/02/11 23:58:59 [error] 51#51: *149 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /static/rest_framework/css/prettify.css HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/static/rest_framework/css/prettify.css", host: "localhost", referrer: "http://localhost/api/offers/"
+2026/02/12 09:30:47 [error] 22#22: *3 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "host.docker.internal"
+2026/02/12 16:40:40 [notice] 23#23: signal process started
+2026/02/12 17:46:39 [error] 30#30: *30 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "host.docker.internal"
+2026/02/12 17:48:26 [error] 30#30: *45 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/users/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/api/users/", host: "host.docker.internal"
+2026/02/12 17:55:13 [error] 30#30: *54 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "host.docker.internal"
+2026/02/12 17:55:13 [error] 30#30: *57 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/api/catalogue/", host: "host.docker.internal"
+2026/02/12 17:56:00 [error] 30#30: *70 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/api/catalogue/", host: "host.docker.internal"
+2026/02/12 17:57:32 [error] 30#30: *75 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "host.docker.internal"
+2026/02/13 00:00:01 [error] 30#30: *83 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/api/catalogue/", host: "localhost"
+2026/02/13 00:00:01 [error] 30#30: *83 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://192.168.65.254:8000/api/catalogue/", host: "localhost"
+2026/02/13 00:00:02 [error] 30#30: *83 no live upstreams while connecting to upstream, client: 172.19.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://django_monolith/favicon.ico", host: "localhost", referrer: "http://localhost/api/catalogue/"
+2026/02/13 00:00:15 [error] 30#30: *83 connect() failed (111: Connection refused) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://192.168.65.254:8000/api/catalogue/", host: "localhost"
+2026/02/13 00:00:15 [error] 30#30: *83 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/api/catalogue/", host: "localhost"
+2026/02/13 00:00:15 [error] 30#30: *83 no live upstreams while connecting to upstream, client: 172.19.0.1, server: , request: "GET /favicon.ico HTTP/1.1", upstream: "http://django_monolith/favicon.ico", host: "localhost", referrer: "http://localhost/api/catalogue/"
+2026/02/13 00:05:42 [error] 30#30: *88 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/api/catalogue/", host: "localhost"
+2026/02/13 00:13:51 [error] 30#30: *101 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/api/catalogue/", host: "localhost"
+2026/02/13 09:46:46 [notice] 31#31: signal process started
+2026/02/13 09:47:30 [error] 38#38: *113 connect() to [fdc4:f303:9324::254]:8003 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8003/api/catalogue/", host: "host.docker.internal"
+2026/02/13 09:47:45 [error] 38#38: *119 connect() to [fdc4:f303:9324::254]:8001 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/offers/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8001/api/offers/", host: "host.docker.internal"
+2026/02/13 09:47:45 [error] 38#38: *124 connect() to [fdc4:f303:9324::254]:8000 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/users/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8000/api/users/", host: "host.docker.internal"
+2026/02/13 09:47:46 [error] 38#38: *135 connect() to [fdc4:f303:9324::254]:8003 failed (101: Network unreachable) while connecting to upstream, client: 172.19.0.1, server: , request: "GET /api/catalogue/ HTTP/1.1", upstream: "http://[fdc4:f303:9324::254]:8003/api/catalogue/", host: "host.docker.internal"

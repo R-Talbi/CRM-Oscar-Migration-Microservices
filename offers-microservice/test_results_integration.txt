@@ -1,0 +1,17 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.0.2, pluggy-1.6.0 -- C:\Users\zakar\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+django: version: 5.2.9, settings: offers_project.settings (from ini)
+rootdir: C:\Users\zakar\Migration_Projekt\OScar\microservices-migration\offers-microservice
+configfile: pytest.ini
+plugins: anyio-4.12.0, Faker-40.1.0, cov-7.0.0, django-4.12.0
+collecting ... collected 6 items
+
+tests/integration/test_api.py::TestOfferApply::test_offer_anwenden_condition_nicht_erfuellt PASSED [ 16%]
+tests/integration/test_api.py::TestOfferApply::test_offer_anwenden_success PASSED [ 33%]
+tests/integration/test_api.py::TestOfferApply::test_offer_anwenden_suspended PASSED [ 50%]
+tests/integration/test_api.py::TestAvailableOffers::test_nur_verfuegbare_offers PASSED [ 66%]
+tests/integration/test_api.py::TestOfferCreate::test_offer_erstellen_success PASSED [ 83%]
+tests/integration/test_api.py::TestOfferCreate::test_offer_erstellen_validation_error PASSED [100%]
+
+============================== 6 passed in 4.03s ==============================

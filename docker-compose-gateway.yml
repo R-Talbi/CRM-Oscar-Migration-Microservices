@@ -1,0 +1,23 @@
+
+version: '3.8'
+
+services:
+  gateway:
+    image: nginx:alpine
+    container_name: strangler_gateway
+    ports:
+      - "80:80"                                                          # Gateway läuft auf Port 80
+    volumes:
+      - ./nginx/nginx-strangler.conf:/etc/nginx/nginx.conf:ro
+                                                                       # Logs damit wir sehen können was passiert
+      - ./nginx/logs:/var/log/nginx
+                                                                      # Wichtig: damit NGINX die anderen Container erreichen kann
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+    networks:
+      - strangler-network
+
+networks:
+  strangler-network:
+    driver: bridge

@@ -1,0 +1,54 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.0.2, pluggy-1.6.0 -- C:\Users\zakar\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+django: version: 5.2.9, settings: basket_project.settings (from ini)
+rootdir: C:\Users\zakar\Migration_Projekt\OScar\microservices-migration\basket-microservice
+configfile: pytest.ini
+plugins: anyio-4.12.0, Faker-40.1.0, cov-7.0.0, django-4.12.0
+collecting ... collected 43 items
+
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_line_price_excl_tax_normal PASSED [  2%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_line_price_excl_tax_single_item PASSED [  4%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_line_price_excl_tax_zero_quantity PASSED [  6%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_line_price_excl_tax_none_price PASSED [  9%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_line_price_incl_tax PASSED [ 11%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_line_price_with_discount PASSED [ 13%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_line_price_with_discount_never_negative PASSED [ 16%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_line_price_with_discount_none_values PASSED [ 18%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_basket_total_excl_tax PASSED [ 20%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_basket_total_incl_tax PASSED [ 23%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_basket_total_discount PASSED [ 25%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_num_items PASSED [ 27%]
+tests/unit/test_business_logik.py::TestBasketCalculator::test_calculate_basket_total_empty_basket PASSED [ 30%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_can_be_edited_open_status PASSED [ 32%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_can_be_edited_saved_status PASSED [ 34%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_can_be_edited_frozen_status PASSED [ 37%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_can_be_edited_submitted_status PASSED [ 39%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_quantity_valid PASSED [ 41%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_quantity_zero PASSED [ 44%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_quantity_negative PASSED [ 46%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_quantity_none PASSED [ 48%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_price_valid PASSED [ 51%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_price_zero PASSED [ 53%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_price_negative PASSED [ 55%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_price_none PASSED [ 58%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_product_id_valid PASSED [ 60%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_product_id_zero PASSED [ 62%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_product_id_none PASSED [ 65%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_basket_editable_open PASSED [ 67%]
+tests/unit/test_business_logik.py::TestBasketValidator::test_validate_basket_editable_frozen PASSED [ 69%]
+tests/unit/test_business_logik.py::TestBasketService::test_calculate_totals PASSED [ 72%]
+tests/unit/test_business_logik.py::TestBasketService::test_validate_add_product_success PASSED [ 74%]
+tests/unit/test_business_logik.py::TestBasketService::test_validate_add_product_frozen_basket PASSED [ 76%]
+tests/unit/test_business_logik.py::TestBasketService::test_validate_add_product_invalid_quantity PASSED [ 79%]
+tests/unit/test_business_logik.py::TestBasketService::test_validate_add_product_invalid_price PASSED [ 81%]
+tests/unit/test_business_logik.py::TestBasketService::test_freeze_basket_from_open PASSED [ 83%]
+tests/unit/test_business_logik.py::TestBasketService::test_freeze_basket_already_frozen PASSED [ 86%]
+tests/unit/test_business_logik.py::TestBasketService::test_thaw_basket_from_frozen PASSED [ 88%]
+tests/unit/test_business_logik.py::TestBasketService::test_thaw_basket_not_frozen PASSED [ 90%]
+tests/unit/test_business_logik.py::TestBasketService::test_submit_basket_from_open PASSED [ 93%]
+tests/unit/test_business_logik.py::TestBasketService::test_submit_basket_already_submitted PASSED [ 95%]
+tests/unit/test_business_logik.py::TestBasketService::test_merge_line_quantities PASSED [ 97%]
+tests/unit/test_business_logik.py::TestBasketService::test_calculate_merge_status PASSED [100%]
+
+============================= 43 passed in 0.36s ==============================
