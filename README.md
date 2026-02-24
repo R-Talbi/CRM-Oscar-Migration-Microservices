@@ -15,7 +15,7 @@ Warten: 60 Sekunden
 # Oscar Monolith (CRM)
   http://localhost:8000/dashboard/
   http://localhost:8000/admin/
-Login: admin / admin , oder nutzen Sie bitte : admin@example.com / admin123
+Login: admin / admin123 , oder nutzen Sie bitte : admin@example.com / admin123
 
 # Microservices APIs
 
@@ -30,6 +30,7 @@ http://localhost:8006/api/payment/
 
 python tests/E2E-Tests.py
 
+# Monitoring Prometheus, Grafana nutzen bitte : User : admin / Psswd: admin123
 
 # Stoppen Deployment
 
