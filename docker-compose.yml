@@ -98,7 +98,7 @@ services:
                --email admin@example.com || true &&
              python manage.py runserver 0.0.0.0:8000"
     volumes:
-          - ../django-oscar:/app
+          - ./django-oscar:/app
     ports:
       - "8000:8000"
     environment:
