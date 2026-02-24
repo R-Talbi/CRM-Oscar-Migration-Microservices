@@ -12,7 +12,8 @@ GATEWAY_URL = settings.GATEWAY_URL
 
 
 def get_from_gateway(endpoint):
-    """Alle Anfragen über Kong Gateway!"""
+
+    """Alle Anfragen über Kong Gateway"""
     try:
         r = requests.get(f"{GATEWAY_URL}{endpoint}", timeout=5)
         return r.json() if r.status_code == 200 else None
@@ -26,7 +27,6 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['get'])
     def full_details(self, request, pk=None):
-        """Order + alle Services über Kong!"""
         order = self.get_object()
         basket = get_from_gateway(f'/api/basket/{order.basket_id}/')
         offers = get_from_gateway('/api/offers/')

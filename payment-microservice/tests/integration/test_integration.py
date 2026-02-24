@@ -1,6 +1,6 @@
 """
 Integration Tests für Payment API
-Prüft Source und Bankcard Endpoints.
+Prüfung Source und Bankcard Endpoint.
 """
 
 from decimal import Decimal
@@ -28,7 +28,6 @@ class TestSourceAPI(TestCase):
         self.assertEqual(response.data['order_id'], 1)
 
     def test_allocate_api(self):
-        # Betrag reservieren über API
         source = Source.objects.create(
             order_id=1, order_number='100001',
             source_type=self.source_type, currency='EUR'
@@ -84,5 +83,4 @@ class TestBankcardAPI(TestCase):
             'expiry_date': '2028-12-31'
         }, format='json')
         self.assertEqual(response.status_code, 201)
-        # Nummer muss anonymisiert sein
         self.assertTrue(response.data['number'].startswith('X'))

@@ -5,16 +5,14 @@ from django.utils.timezone import now
 
 
 class Basket(models.Model):
-    """
-    Oscar AbstractBasket - vollständig migriert.
-    owner FK → customer_id (int)
-    vouchers M2M → voucher_codes (JSON)
-    """
-    # Statt FK zu User → ID lokal!
+
+    # Statt FK zu User wie in Monolith nutzen wir ID lokal
+
     customer_id = models.IntegerField(null=True, blank=True)
     customer_email = models.EmailField(blank=True, default='')
 
-    # Status wie Oscar!
+    # Status wie Oscar
+
     OPEN = 'Open'
     MERGED = 'Merged'
     SAVED = 'Saved'
@@ -34,10 +32,9 @@ class Basket(models.Model):
         choices=STATUS_CHOICES
     )
 
-    # Voucher Codes lokal gespeichert statt M2M!
     voucher_codes = models.JSONField(default=list, blank=True)
 
-    # Timestamps wie Oscar!
+
     date_created = models.DateTimeField(default=django.utils.timezone.now)
     date_merged = models.DateTimeField(null=True, blank=True)
     date_submitted = models.DateTimeField(null=True, blank=True)
@@ -86,7 +83,8 @@ class Basket(models.Model):
     def can_be_edited(self):
         return self.status in (self.OPEN, self.SAVED)
 
-    # Methoden wie Oscar!
+    # Methoden wie Oscar
+
     def freeze(self):
         self.status = self.FROZEN
         self.save()
@@ -101,7 +99,9 @@ class Basket(models.Model):
         self.save()
 
     def merge(self, other_basket):
-        """Zwei Baskets zusammenführen wie Oscar!"""
+
+        """Zwei Baskets zusammenführen wie Oscar"""
+
         for line in other_basket.lines.all():
             try:
                 existing = self.lines.get(
@@ -120,7 +120,9 @@ class Basket(models.Model):
     def add_product(self, product_id, product_title,
                     price_excl_tax, price_incl_tax,
                     quantity=1, currency='EUR'):
-        """Produkt zum Basket hinzufügen wie Oscar!"""
+
+        """Produkt zum Basket hinzufügen wie Oscar"""
+
         if not self.can_be_edited:
             raise PermissionError(
                 f"Cannot modify a {self.status} basket"
@@ -144,30 +146,26 @@ class Basket(models.Model):
 
 
 class BasketLine(models.Model):
-    """
-    Oscar AbstractLine (Basket) - vollständig migriert.
-    product FK → product_id + product_title + price (lokal!)
-    stockrecord FK → stockrecord_id (int)
-    """
+
     basket = models.ForeignKey(
         Basket,
         on_delete=models.CASCADE,
         related_name='lines'
     )
 
-    # Line Reference wie Oscar!
+
     line_reference = models.SlugField(max_length=128, db_index=True, default='')
 
-    # Statt FK zu catalogue.Product → Daten lokal!
+
     product_id = models.IntegerField()
     product_title = models.CharField(max_length=255, default='')
 
-    # Statt FK zu partner.StockRecord → ID lokal!
+
     stockrecord_id = models.IntegerField(null=True, blank=True)
 
     quantity = models.PositiveIntegerField(default=1)
 
-    # Preise wie Oscar!
+
     price_currency = models.CharField(max_length=12, default='EUR')
     price_excl_tax = models.DecimalField(
         decimal_places=2, max_digits=12, null=True
@@ -177,12 +175,12 @@ class BasketLine(models.Model):
     )
     tax_code = models.CharField(max_length=64, blank=True, null=True)
 
-    # Discount wie Oscar!
+
     discount_value = models.DecimalField(
         decimal_places=2, max_digits=12, default=D('0.00')
     )
 
-    # Offer Referenz
+
     offer_id = models.IntegerField(null=True, blank=True)
 
     date_created = models.DateTimeField(default=django.utils.timezone.now)
@@ -232,15 +230,13 @@ class BasketLine(models.Model):
 
 
 class BasketLineAttribute(models.Model):
-    """
-    Oscar AbstractLineAttribute (Basket) - vollständig migriert.
-    """
+
     line = models.ForeignKey(
         BasketLine,
         on_delete=models.CASCADE,
         related_name='attributes'
     )
-    # Statt FK zu catalogue.Option → Name lokal!
+
     option_name = models.CharField(max_length=128)
     value = models.JSONField()
 

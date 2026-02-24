@@ -1,13 +1,20 @@
+
+"""
+Offers Service Layer
+"""
+
 from decimal import Decimal as D
 from typing import Optional
 from django.utils.timezone import now
 
 
 class DiscountCalculator:
+
     # B. Logik für Rabatt Berechnung
 
     @staticmethod
     def calculate_percentage_discount(line_price: D, percentage: D) -> D:
+
         # Rabatt berechnen
         if not percentage or percentage <= 0:
             return D("0.00")
@@ -15,7 +22,6 @@ class DiscountCalculator:
 
     @staticmethod
     def calculate_fixed_discount(line_price: D, fixed_amount: D) -> D:
-        # Fester Rabatt
         if not fixed_amount or fixed_amount <= 0:
             return D("0.00")
         return min(fixed_amount, line_price)
@@ -29,7 +35,8 @@ class DiscountCalculator:
 
 
 class ConditionChecker:
-    # B. Logik für Condition-Prüfung
+
+    # B. Logik für Condition Prüfung
 
     @staticmethod
     def check_count_condition(basket_quantity: int, required_count: D) -> bool:
@@ -45,7 +52,8 @@ class ConditionChecker:
 
 
 class OfferApplicationService:
-    # Haupt Service für Offer Anwendeung
+
+    # Haupt logik für Offers-Anwendung
 
     def __init__(self):
         self.discount_calculator = DiscountCalculator()
@@ -58,7 +66,7 @@ class OfferApplicationService:
         end_datetime: Optional,
         is_suspended_status: str,
     ) -> bool:
-        # Offer verfügbar
+
         if status == is_suspended_status:
             return False
 
@@ -75,7 +83,9 @@ class OfferApplicationService:
     def calculate_benefit_discount(
         self, benefit_type: str, benefit_value: Optional[D], line_price: D, quantity: int
     ) -> D:
+
         # Berechnung Rabatt
+
         if benefit_type == "Percentage" and benefit_value:
             return self.discount_calculator.calculate_percentage_discount(line_price, benefit_value)
         elif benefit_type == "Absolute" and benefit_value:
@@ -91,7 +101,9 @@ class OfferApplicationService:
         basket_total: D,
         basket_quantity: int,
     ) -> bool:
+
         # Condition erfüllt oder nicht
+
         if condition_type == "Count" and condition_value:
             return self.condition_checker.check_count_condition(basket_quantity, condition_value)
         elif condition_type == "Value" and condition_value:
@@ -101,7 +113,9 @@ class OfferApplicationService:
     def apply_offer_with_limits(
         self, discount: D, max_discount: Optional[D], total_discount: D
     ) -> D:
+
         # Max Discount
+
         if max_discount:
             remaining = max_discount - total_discount
             return min(discount, remaining, discount)

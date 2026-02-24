@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from .models import Basket, BasketLine
 from .serializers import BasketSerializer, BasketLineSerializer
 
-# Gateway ist die einzige Adresse die wir kennen!
+
 GATEWAY_URL = "http://host.docker.internal:80"
 
 
@@ -14,13 +14,13 @@ class BasketViewSet(viewsets.ModelViewSet):
     serializer_class = BasketSerializer
 
     def get_via_gateway(self, endpoint):
-        # Wir fragen immer Gateway - nie direkt!
+                                                    # kommunikation mit Kong Gateway
         try:
             response = requests.get(
                 f"{GATEWAY_URL}{endpoint}",
                 timeout=5
             )
-            # Gateway sagt uns wer geantwortet hat
+
             backend = response.headers.get('X-Backend-Used', 'unbekannt')
 
             if response.status_code == 200:
@@ -31,7 +31,7 @@ class BasketViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['get'])
     def available_offers(self, request, pk=None):
-        # Offers holen über Gateway
+
         basket = self.get_object()
         offers_data, _ = self.get_via_gateway('/api/offers/')
         offers = offers_data.get('results', []) if offers_data else []
@@ -44,9 +44,9 @@ class BasketViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['get'])
     def full_details(self, request, pk=None):
-        # Hier sehen wir Strangler Pattern in Aktion!
-        # Basket fragt alles über Gateway
-        # Er weiß nicht ob Monolith oder Microservice antwortet!
+
+                                                      # Basket fragt alles über kong Gateway
+
         basket = self.get_object()
 
         offers_data, offers_backend = self.get_via_gateway('/api/offers/')

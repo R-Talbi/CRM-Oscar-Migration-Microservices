@@ -1,5 +1,5 @@
 
-# NGINX Config basierend auf Strangler Pattern
+# NGINX Config
 
 
 events {
@@ -299,7 +299,7 @@ http {
     }
 }
 
-# NGINX Config basierend auf Strangler Pattern
+# NGINX Config
 
 
 events {

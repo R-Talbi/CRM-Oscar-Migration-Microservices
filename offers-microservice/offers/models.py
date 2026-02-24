@@ -1,13 +1,11 @@
 from decimal import Decimal as D
 from django.db import models
-# from django.utils.translation import gettext_lazy as _
 
 
 class Range(models.Model):
-    """
-    Oscar AbstractRange - vollständig migriert.
-    Produkt IDs lokal gespeichert statt FK!
-    """
+
+    # Produkt ID lokal gespeichert statt FK
+
 
     name = models.CharField(max_length=128, unique=True)
     slug = models.SlugField(max_length=128, unique=True)
@@ -15,7 +13,6 @@ class Range(models.Model):
     is_public = models.BooleanField(default=False)
     includes_all_products = models.BooleanField(default=False)
 
-    # Statt FK zu catalogue.Product → IDs lokal speichern!
     included_product_ids = models.JSONField(default=list, blank=True)
     excluded_product_ids = models.JSONField(default=list, blank=True)
 
@@ -45,10 +42,6 @@ class Range(models.Model):
 
 
 class Benefit(models.Model):
-    """
-    Oscar AbstractBenefit - vollständig migriert.
-    Alle 8 Typen wie Oscar!
-    """
 
     PERCENTAGE = "Percentage"
     FIXED = "Absolute"
@@ -83,7 +76,6 @@ class Benefit(models.Model):
         return f"{self.type} - {self.value}"
 
     def apply_discount(self, line_price, quantity):
-        """Rabatt berechnen basierend auf Typ"""
         if self.type == self.PERCENTAGE and self.value:
             return line_price * (self.value / 100)
         elif self.type == self.FIXED and self.value:
@@ -95,10 +87,6 @@ class Benefit(models.Model):
 
 
 class Condition(models.Model):
-    """
-    Oscar AbstractCondition - vollständig migriert.
-    Alle 3 Typen wie Oscar!
-    """
 
     COUNT = "Count"
     VALUE = "Value"
@@ -122,7 +110,6 @@ class Condition(models.Model):
         return f"{self.type} - {self.value}"
 
     def is_satisfied(self, basket_total, basket_quantity):
-        """Prüft ob Bedingung erfüllt ist"""
         if self.type == self.COUNT and self.value:
             return basket_quantity >= self.value
         elif self.type == self.VALUE and self.value:
@@ -131,10 +118,6 @@ class Condition(models.Model):
 
 
 class ConditionalOffer(models.Model):
-    """
-    Oscar AbstractConditionalOffer - vollständig migriert.
-    Alle Felder wie Oscar!
-    """
 
     SITE = "Site"
     VOUCHER = "Voucher"
@@ -159,6 +142,7 @@ class ConditionalOffer(models.Model):
     ]
 
     # Basis Felder wie Oscar
+
     name = models.CharField(max_length=128, unique=True)
     slug = models.SlugField(max_length=128, unique=True)
     description = models.TextField(blank=True)
@@ -167,23 +151,27 @@ class ConditionalOffer(models.Model):
     status = models.CharField(max_length=64, choices=STATUS_CHOICES, default=OPEN)
 
     # Verbindungen zu Benefit und Condition
+
     condition = models.ForeignKey(Condition, on_delete=models.CASCADE, related_name="offers")
     benefit = models.ForeignKey(Benefit, on_delete=models.CASCADE, related_name="offers")
 
     # Priorität
+
     priority = models.IntegerField(default=0, db_index=True)
 
-    # Verfügbarkeit - wie Oscar!
+    # Verfügbarkeit
+
     start_datetime = models.DateTimeField(blank=True, null=True)
     end_datetime = models.DateTimeField(blank=True, null=True)
 
-    # Limits - wie Oscar!
+    # Limits
+
     max_global_applications = models.PositiveIntegerField(null=True, blank=True)
     max_user_applications = models.PositiveIntegerField(null=True, blank=True)
     max_basket_applications = models.PositiveIntegerField(null=True, blank=True)
     max_discount = models.DecimalField(decimal_places=2, max_digits=12, null=True, blank=True)
 
-    # Tracking - wie Oscar!
+    # Tracking
     total_discount = models.DecimalField(decimal_places=2, max_digits=12, default=D("0.00"))
     num_applications = models.PositiveIntegerField(default=0)
     num_orders = models.PositiveIntegerField(default=0)
@@ -198,7 +186,7 @@ class ConditionalOffer(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        # Status automatisch setzen wie Oscar!
+
         if not self.is_suspended:
             if (
                 self.max_global_applications
@@ -230,17 +218,14 @@ class ConditionalOffer(models.Model):
         return True
 
     def record_usage(self, discount_amount):
-        """Nutzung tracken wie Oscar!"""
+
         self.num_applications += 1
         self.total_discount += discount_amount
         self.num_orders += 1
         self.save()
 
     def apply_to_basket(self, basket_total, basket_quantity):
-        """
-        Offer auf Basket anwenden.
-        Gibt Rabatt zurück.
-        """
+
         if not self.is_available():
             return D("0.00")
 

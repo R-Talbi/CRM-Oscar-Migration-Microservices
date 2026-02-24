@@ -72,4 +72,5 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Offers Microservice URL
+
 OFFERS_SERVICE_URL = 'http://host.docker.internal:8001'

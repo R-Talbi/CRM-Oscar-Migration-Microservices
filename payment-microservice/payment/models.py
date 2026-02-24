@@ -1,13 +1,10 @@
+
 from decimal import Decimal as D
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 
 
 class SourceType(models.Model):
-    """
-    Oscar AbstractSourceType - vollständig migriert!
-    z.B. PayPal, Kreditkarte, Banküberweisung
-    """
+
     name = models.CharField(max_length=128, db_index=True)
     code = models.SlugField(max_length=128, unique=True)
 
@@ -19,12 +16,7 @@ class SourceType(models.Model):
 
 
 class Source(models.Model):
-    """
-    Oscar AbstractSource - vollständig migriert!
-    order FK → order_id (int)
-    source_type FK → SourceType (lokal!)
-    """
-    # Statt FK zu order.Order → ID lokal!
+
     order_id = models.IntegerField()
     order_number = models.CharField(max_length=128)
 
@@ -36,7 +28,6 @@ class Source(models.Model):
 
     currency = models.CharField(max_length=12, default='EUR')
 
-    # Beträge wie Oscar!
     amount_allocated = models.DecimalField(
         decimal_places=2, max_digits=12, default=D('0.00')
     )
@@ -56,7 +47,8 @@ class Source(models.Model):
     def __str__(self):
         return f"Allocation of {self.amount_allocated} from {self.source_type}"
 
-    # Methoden wie Oscar!
+    # Methoden wie Oscar
+
     def allocate(self, amount, reference='', status=''):
         """Betrag reservieren wie Oscar!"""
         self.amount_allocated += amount
@@ -105,16 +97,13 @@ class Source(models.Model):
 
 
 class Transaction(models.Model):
-    """
-    Oscar AbstractTransaction - vollständig migriert!
-    """
+
     source = models.ForeignKey(
         Source,
         on_delete=models.CASCADE,
         related_name='transactions'
     )
 
-    # Typen wie Oscar!
     AUTHORISE = 'Authorise'
     DEBIT = 'Debit'
     REFUND = 'Refund'
@@ -138,17 +127,12 @@ class Transaction(models.Model):
 
 
 class Bankcard(models.Model):
-    """
-    Oscar AbstractBankcard - vollständig migriert!
-    user FK → customer_id (int)
-    """
-    # Statt FK zu User → ID lokal!
+
     customer_id = models.IntegerField()
 
     card_type = models.CharField(max_length=128)
     name = models.CharField(max_length=255, blank=True)
 
-    # Nur letzte 4 Stellen wie Oscar!
     number = models.CharField(max_length=32)
     expiry_date = models.DateField()
     partner_reference = models.CharField(max_length=255, blank=True)
@@ -160,7 +144,6 @@ class Bankcard(models.Model):
         return f"{self.card_type} {self.number}"
 
     def save(self, *args, **kwargs):
-        # Karte anonymisieren wie Oscar!
         if not self.number.startswith('X'):
             self.number = f"XXXX-XXXX-XXXX-{self.number[-4:]}"
         super().save(*args, **kwargs)

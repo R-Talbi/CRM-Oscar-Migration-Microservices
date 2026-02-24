@@ -14,7 +14,7 @@ class TestOrderAPI(TestCase):
         self.client = APIClient()
 
     def test_order_erstellen(self):
-        # Order über API erstellen
+
         response = self.client.post('/api/orders/', {
             'number': '100001',
             'customer_id': 1,
@@ -30,7 +30,7 @@ class TestOrderAPI(TestCase):
         self.assertEqual(response.data['number'], '100001')
 
     def test_order_status_aendern(self):
-        # Status über API ändern
+
         order = Order.objects.create(
             number='100001',
             customer_id=1,
@@ -49,7 +49,6 @@ class TestOrderAPI(TestCase):
         self.assertEqual(response.data['status'], 'Processing')
 
     def test_line_hinzufuegen(self):
-        # Line ohne FK über API hinzufügen
         order = Order.objects.create(
             number='100001',
             customer_id=1,
@@ -77,7 +76,6 @@ class TestOrderAPI(TestCase):
         self.assertEqual(response.data['product_id'], 1)
 
     def test_note_hinzufuegen(self):
-        # Note über API hinzufügen
         order = Order.objects.create(
             number='100001',
             customer_id=1,

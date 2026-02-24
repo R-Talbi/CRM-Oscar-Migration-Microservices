@@ -1,12 +1,10 @@
+
 from django.db import models
 from django.utils.timezone import now
 
 
 class ShippingAddress(models.Model):
-    """
-    Oscar ShippingAddress - lokal gespeichert!
-    Statt FK → Daten direkt im Order!
-    """
+
     first_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255, blank=True)
     line1 = models.CharField(max_length=255)
@@ -27,7 +25,6 @@ class ShippingAddress(models.Model):
 
 
 class BillingAddress(models.Model):
-    """Billing Adresse lokal gespeichert!"""
     first_name = models.CharField(max_length=255, blank=True)
     last_name = models.CharField(max_length=255, blank=True)
     line1 = models.CharField(max_length=255)
@@ -45,21 +42,16 @@ class BillingAddress(models.Model):
 
 
 class Order(models.Model):
-    """
-    Oscar AbstractOrder - vollständig migriert!
-    Alle FKs durch IDs ersetzt!
-    """
-    # Order Nummer wie Oscar!
+
+    # Order Nummer wie Oscar
     number = models.CharField(max_length=128, db_index=True, unique=True)
 
-    # Statt FK zu User → ID lokal!
+    # Statt FK zu User, nutzen wir ID lokal
     customer_id = models.IntegerField(null=True, blank=True)
     guest_email = models.EmailField(blank=True)
 
-    # Statt FK zu basket.Basket → ID lokal!
     basket_id = models.IntegerField(null=True, blank=True)
 
-    # Statt FK zu BillingAddress/ShippingAddress → Eigene Models!
     billing_address = models.ForeignKey(
         BillingAddress,
         null=True,
@@ -73,7 +65,6 @@ class Order(models.Model):
         on_delete=models.SET_NULL
     )
 
-    # Preise wie Oscar!
     currency = models.CharField(max_length=12, default='EUR')
     total_incl_tax = models.DecimalField(decimal_places=2, max_digits=12)
     total_excl_tax = models.DecimalField(decimal_places=2, max_digits=12)
@@ -87,7 +78,6 @@ class Order(models.Model):
     shipping_method = models.CharField(max_length=128, blank=True)
     shipping_code = models.CharField(max_length=128, blank=True)
 
-    # Status wie Oscar!
     status = models.CharField(max_length=100, blank=True)
 
     date_placed = models.DateTimeField(db_index=True)
@@ -124,11 +114,9 @@ class Order(models.Model):
         return sum(line.quantity for line in self.lines.all())
 
     def set_status(self, new_status):
-        """Status setzen wie Oscar!"""
         old_status = self.status
         self.status = new_status
         self.save()
-        # Status Change tracken!
         OrderStatusChange.objects.create(
             order=self,
             old_status=old_status,
@@ -137,35 +125,28 @@ class Order(models.Model):
 
 
 class OrderLine(models.Model):
-    """
-    Oscar AbstractLine (Order) - vollständig migriert!
-    product FK → product_id + title (lokal!)
-    stockrecord FK → stockrecord_id (int)
-    partner FK → partner_name (lokal!)
-    """
+
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
         related_name='lines'
     )
 
-    # Partner Info lokal gespeichert wie Oscar!
+    # Partner Info lokal gespeichert wie Oscar
+
     partner_name = models.CharField(max_length=128, blank=True)
     partner_sku = models.CharField(max_length=128)
     partner_line_reference = models.CharField(max_length=128, blank=True)
     partner_line_notes = models.TextField(blank=True)
 
-    # Statt FK zu partner.StockRecord → ID lokal!
     stockrecord_id = models.IntegerField(null=True, blank=True)
 
-    # Statt FK zu catalogue.Product → Daten lokal!
     product_id = models.IntegerField(null=True, blank=True)
     title = models.CharField(max_length=255)
     upc = models.CharField(max_length=128, blank=True, null=True)
 
     quantity = models.PositiveIntegerField(default=1)
 
-    # Preise wie Oscar!
     line_price_incl_tax = models.DecimalField(decimal_places=2, max_digits=12)
     line_price_excl_tax = models.DecimalField(decimal_places=2, max_digits=12)
     line_price_before_discounts_incl_tax = models.DecimalField(
@@ -204,13 +185,11 @@ class OrderLine(models.Model):
 
 
 class OrderLineAttribute(models.Model):
-    """Oscar AbstractLineAttribute (Order) - vollständig migriert!"""
     line = models.ForeignKey(
         OrderLine,
         on_delete=models.CASCADE,
         related_name='attributes'
     )
-    # Statt FK zu catalogue.Option → Name lokal!
     option_name = models.CharField(max_length=128)
     type = models.CharField(max_length=128)
     value = models.JSONField()
@@ -220,7 +199,6 @@ class OrderLineAttribute(models.Model):
 
 
 class OrderStatusChange(models.Model):
-    """Oscar AbstractOrderStatusChange - vollständig migriert!"""
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
@@ -238,13 +216,11 @@ class OrderStatusChange(models.Model):
 
 
 class OrderNote(models.Model):
-    """Oscar AbstractOrderNote - vollständig migriert!"""
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
         related_name='notes'
     )
-    # Statt FK zu User → ID lokal!
     customer_id = models.IntegerField(null=True, blank=True)
 
     INFO = 'Info'
@@ -271,7 +247,6 @@ class OrderNote(models.Model):
 
 
 class OrderDiscount(models.Model):
-    """Oscar AbstractOrderDiscount - vollständig migriert!"""
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
@@ -292,7 +267,7 @@ class OrderDiscount(models.Model):
         default=BASKET,
         choices=CATEGORY_CHOICES
     )
-    # Offer Referenz (Offers Microservice über Kong!)
+
     offer_id = models.PositiveIntegerField(blank=True, null=True)
     offer_name = models.CharField(max_length=128, db_index=True, blank=True)
     voucher_id = models.PositiveIntegerField(blank=True, null=True)

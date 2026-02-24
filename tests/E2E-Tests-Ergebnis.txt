@@ -1,0 +1,31 @@
+
+=== E2E Tests Start ===
+
+--- Offers-Service ---
+Gut Get Offers: 200
+Gut Get Ranges: 200
+Gut Create Range: 201
+
+--- Basket-Service ---
+Gut Get Baskets: 200
+Gut Create Basket: 201
+Gut Add Product: 200
+
+--- MONOLITH Anwendung---
+Gut Monolith Home: 200
+Gut Catalogue: 200
+Gut Dashboard: 200
+Gut Admin Panel: 200
+
+--- Orders-Service ---
+Gut Get Orders: 200
+Gut Create Order: 201
+
+--- Payment-Service---
+Gut Get Sources: 200
+Gut Get Bankcards: 200
+
+========================================
+Ergebnis: 14/14 test bestanden
+========================================
+✓ Alle Tests Erfolgreich sind

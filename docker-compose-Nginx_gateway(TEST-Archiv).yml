@@ -1,4 +1,7 @@
 
+# Erste Version mit nginx als Gateway - Test
+# Wurde ersetzt durch Kong Gateway, weil viele probleme getroffen wurde.
+
 version: '3.8'
 
 services:

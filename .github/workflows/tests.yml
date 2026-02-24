@@ -1,5 +1,7 @@
-# CI/CD Pipeline - Build, Test, Coverage
+
+# CI/CD Pipeline Build, Test, Coverage
 # Läuft bei jedem Push und Pull Request
+# noch in der bearbeitung !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 name: Build, Test, Coverage
 
@@ -11,7 +13,7 @@ on:
 
 jobs:
 
-                    # Docker Images bauen
+    # Docker Images bauen
   build:
     name: "Build Docker Images"
     runs-on: ubuntu-latest
@@ -29,6 +31,7 @@ jobs:
 
 
   # Tests: Offers Microservice
+
   test-offers:
     name: "Test Offers Service"
     runs-on: ubuntu-latest

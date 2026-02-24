@@ -1,7 +1,8 @@
+
 version: '3.8'
 services:
 
-                                                                    # Kong Gateway
+                                                       # Kong Gateway
   kong-database:
     image: postgres:15-alpine
     container_name: kong_database
@@ -65,7 +66,54 @@ services:
       timeout: 10s
       retries: 10
 
-                                                                    # Offers Microservice
+
+                                                          # Oscar Monolith
+  oscar-monolith-db:
+    image: postgres:15-alpine
+    container_name: oscar_monolith_db
+    environment:
+      POSTGRES_DB: oscar_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - oscar_monolith_data:/var/lib/postgresql/data
+    networks:
+      - microservices_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  oscar-monolith:
+    build: ./oscar-monolith
+    container_name: oscar_monolith
+    working_dir: /app/sandbox
+    command: >
+      sh -c "sleep 10 &&
+             python manage.py migrate --noinput &&
+             python manage.py createsuperuser
+               --noinput
+               --username admin
+               --email admin@example.com || true &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+          - ../django-oscar:/app
+    ports:
+      - "8000:8000"
+    environment:
+        - PYTHONUNBUFFERED=1
+        - DB_HOST=oscar-monolith-db
+        - DB_NAME=oscar_db
+        - DB_USER=postgres
+        - DB_PASSWORD=postgres
+    networks:
+      - microservices_network
+    depends_on:
+      oscar-monolith-db:
+        condition: service_healthy
+
+                                                                            # Offers Microservice
   offers-db:
     image: postgres:15-alpine
     container_name: offers_db
@@ -108,7 +156,7 @@ services:
       offers-db:
         condition: service_healthy
 
-                                                                                    # Microservice Basket
+                                                                                    # Basket Microservice
   basket-db:
     image: postgres:15-alpine
     container_name: basket_db
@@ -151,51 +199,7 @@ services:
       basket-db:
         condition: service_healthy
 
-                                                                                  # Catalogue Microservice
-  catalogue-db:
-    image: postgres:15-alpine
-    container_name: catalogue_db
-    environment:
-      POSTGRES_DB: catalogue_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-    volumes:
-      - catalogue_data:/var/lib/postgresql/data
-    networks:
-      - microservices_network
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
-  catalogue:
-    build: ./catalogue-microservice
-    container_name: catalogue_microservice
-    command: >
-      sh -c "sleep 10 &&
-             python manage.py makemigrations catalogue &&
-             python manage.py migrate --noinput &&
-             python manage.py createsuperuser
-               --noinput
-               --username admin
-               --email admin@example.com || true &&
-             python manage.py runserver 0.0.0.0:8003"
-    volumes:
-      - ./catalogue-microservice:/app
-    ports:
-      - "8003:8003"
-    environment:
-      - DJANGO_SUPERUSER_PASSWORD=admin
-      - DB_HOST=catalogue-db
-    networks:
-      - microservices_network
-    depends_on:
-      catalogue-db:
-        condition: service_healthy
-
-                                                                                          # Orders Microservice
-
+                                                                    # Orders Microservice
   orders-db:
     image: postgres:15-alpine
     container_name: orders_db
@@ -238,8 +242,7 @@ services:
       orders-db:
         condition: service_healthy
 
-                                                                            # Payment Microservice
-
+                                                                      # Payment Microservice
   payment-db:
     image: postgres:15-alpine
     container_name: payment_db
@@ -290,11 +293,8 @@ networks:
 
 volumes:
   kong_data:
+  oscar_monolith_data:
   offers_data:
   basket_data:
-  catalogue_data:
   orders_data:
   payment_data:
-
-
-
