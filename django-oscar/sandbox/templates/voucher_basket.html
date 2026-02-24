@@ -1,0 +1,55 @@
+{% extends "oscar/layout.html" %}
+{% block title %}Voucher + Basket Microservice{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Strangler Pattern Demo</h1>
+    <div class="alert alert-success">
+        <strong>Kommunikation:</strong> {{ kommunikation }}
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header"><h3>Voucher (Monolith DB)</h3></div>
+                <div class="card-body">
+                    {% if voucher %}
+                    <table class="table">
+                        <tr><td><strong>Code:</strong></td><td>{{ voucher.code }}</td></tr>
+                        <tr><td><strong>Name:</strong></td><td>{{ voucher.name }}</td></tr>
+                        <tr><td><strong>Additions:</strong></td><td>{{ voucher.num_basket_additions }}</td></tr>
+                    </table>
+                    {% else %}
+                    <p>Kein Voucher gefunden.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header"><h3>Basket (Microservice via Kong)</h3></div>
+                <div class="card-body">
+                    {% if baskets %}
+                    {% for basket in baskets %}
+                    <div class="border p-2 mb-2">
+                        <p><strong>Basket ID:</strong> {{ basket.id }}</p>
+                        <p><strong>Kunde:</strong> {{ basket.customer_email }}</p>
+                        <p><strong>Total:</strong> {{ basket.total_incl_tax }} EUR</p>
+                        {% for line in basket.lines %}
+                        <small>- {{ line.product_title }} x {{ line.quantity }}</small><br>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p>Keine Baskets gefunden.</p>
+                    {% endif %}
+                    <hr>
+                    <small>Daten von: {{ kong_url }}/api/basket/</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-info" style="margin-top:20px">
+        <strong>Architektur:</strong>
+        Voucher (Monolith:8000) → Kong (Port 80) → Basket Microservice (Port 8002)
+    </div>
+</div>
+{% endblock %}
