@@ -30,10 +30,10 @@ jobs:
 
       - name: Build All Services
         run: |
-              docker-compose build offers_microservice
-              docker-compose build basket_microservice
-              docker-compose build orders_microservice
-              docker-compose build payment_microservice
+              docker compose build offers_microservice
+              docker compose build basket_microservice
+              docker compose build orders_microservice
+              docker compose build payment_microservice
 
 
   # Tests: Offers Microservice
@@ -49,24 +49,24 @@ jobs:
 
       - name: Start Service
         run: |
-          docker-compose up -d offers_microservice
+          docker compose up -d offers_microservice
           sleep 15
 
       - name: Run Unit Tests
         run: |
-          docker-compose exec -T offers_microservice pytest tests/unit/ -v --tb=short
+          docker compose exec -T offers_microservice pytest tests/unit/ -v --tb=short
 
       - name: Run Integration Tests
         run: |
-          docker-compose exec -T offers_microservice pytest tests/integration/ -v --tb=short
+          docker compose exec -T offers_microservice pytest tests/integration/ -v --tb=short
 
       - name: Check Coverage (>80%)
         run: |
-          docker-compose exec -T offers_microservice pytest tests/ --cov=offers --cov-report=term --cov-fail-under=80
+          docker compose exec -T offers_microservice pytest tests/ --cov=offers --cov-report=term --cov-fail-under=80
 
       - name: Stop Service
         if: always()
-        run: docker-compose down
+        run: docker compose down
 
 
   # Tests: Basket Microservice
@@ -82,24 +82,24 @@ jobs:
 
       - name: Start Service
         run: |
-          docker-compose up -d basket_microservice
+          docker compose up -d basket_microservice
           sleep 15
 
       - name: Run Unit Tests
         run: |
-          docker-compose exec -T basket_microservice pytest tests/unit/ -v --tb=short
+          docker compose exec -T basket_microservice pytest tests/unit/ -v --tb=short
 
       - name: Run Integration Tests
         run: |
-          docker-compose exec -T basket_microservice pytest tests/integration/ -v --tb=short
+          docker compose exec -T basket_microservice pytest tests/integration/ -v --tb=short
 
       - name: Check Coverage (>80%)
         run: |
-          docker-compose exec -T basket_microservice pytest tests/ --cov=basket --cov-report=term --cov-fail-under=80
+          docker compose exec -T basket_microservice pytest tests/ --cov=basket --cov-report=term --cov-fail-under=80
 
       - name: Stop Service
         if: always()
-        run: docker-compose down
+        run: docker compose down
 
 
   # Tests: Orders Service
@@ -115,24 +115,24 @@ jobs:
 
       - name: Start Service
         run: |
-          docker-compose up -d orders_microservice
+          docker compose up -d orders_microservice
           sleep 15
 
       - name: Run Unit Tests
         run: |
-          docker-compose exec -T orders_microservice pytest tests/unit/ -v --tb=short
+          docker compose exec -T orders_microservice pytest tests/unit/ -v --tb=short
 
       - name: Run Integration Tests
         run: |
-          docker-compose exec -T orders_microservice pytest tests/integration/ -v --tb=short
+          docker compose exec -T orders_microservice pytest tests/integration/ -v --tb=short
 
       - name: Check Coverage (>80%)
         run: |
-          docker-compose exec -T orders_microservice pytest tests/ --cov=orders --cov-report=term --cov-fail-under=80
+          docker compose exec -T orders_microservice pytest tests/ --cov=orders --cov-report=term --cov-fail-under=80
 
       - name: Stop Service
         if: always()
-        run: docker-compose down
+        run: docker compose down
 
 
   # Tests: Payment Service
@@ -147,24 +147,24 @@ jobs:
 
       - name: Start Service
         run: |
-          docker-compose up -d payment_microservice
+          docker compose up -d payment_microservice
           sleep 15
 
       - name: Run Unit Tests
         run: |
-          docker-compose exec -T payment_microservice pytest tests/unit/ -v --tb=short
+          docker compose exec -T payment_microservice pytest tests/unit/ -v --tb=short
 
       - name: Run Integration Tests
         run: |
-          docker-compose exec -T payment_microservice pytest tests/integration/ -v --tb=short
+          docker compose exec -T payment_microservice pytest tests/integration/ -v --tb=short
 
       - name: Check Coverage (>80%)
         run: |
-          docker-compose exec -T payment_microservice pytest tests/ --cov=payment --cov-report=term --cov-fail-under=80
+          docker compose exec -T payment_microservice pytest tests/ --cov=payment --cov-report=term --cov-fail-under=80
 
       - name: Stop Service
         if: always()
-        run: docker-compose down
+        run: docker compose down
 
 
   # Alle Tests erfolgreich
