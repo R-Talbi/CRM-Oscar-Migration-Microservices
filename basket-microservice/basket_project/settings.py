@@ -1,4 +1,5 @@
 from pathlib import Path
+USE_TZ = False
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 

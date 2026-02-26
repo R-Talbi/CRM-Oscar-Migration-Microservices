@@ -1,7 +1,4 @@
-
- """ Integration Tests für Basket-Service """
-
-
+"""Integration Tests für Basket-Service"""
 from decimal import Decimal
 from django.test import TestCase
 from rest_framework.test import APIClient
@@ -14,7 +11,6 @@ class TestBasketAPI(TestCase):
         self.client = APIClient()
 
     def test_basket_erstellen(self):
-
         # Neues Basket erstellen
 
         response = self.client.post('/api/basket/', {
@@ -26,7 +22,6 @@ class TestBasketAPI(TestCase):
         self.assertEqual(response.data['status'], 'Open')
 
     def test_basket_liste(self):
-
         Basket.objects.create(customer_id=1)
         Basket.objects.create(customer_id=2)
 
@@ -35,7 +30,6 @@ class TestBasketAPI(TestCase):
         self.assertEqual(response.data['count'], 2)
 
     def test_produkt_hinzufuegen_api(self):
-
         basket = Basket.objects.create(customer_id=1)
         response = self.client.post(
             f'/api/basket/{basket.id}/add_product/',
@@ -53,7 +47,6 @@ class TestBasketAPI(TestCase):
         self.assertEqual(basket.num_items, 2)
 
     def test_basket_freeze_api(self):
-
         basket = Basket.objects.create(customer_id=1)
         response = self.client.post(f'/api/basket/{basket.id}/freeze/')
         self.assertEqual(response.status_code, 200)
@@ -61,7 +54,6 @@ class TestBasketAPI(TestCase):
         self.assertEqual(basket.status, 'Frozen')
 
     def test_basket_submit_api(self):
-
         basket = Basket.objects.create(customer_id=1)
         response = self.client.post(f'/api/basket/{basket.id}/submit/')
         self.assertEqual(response.status_code, 200)
@@ -69,7 +61,6 @@ class TestBasketAPI(TestCase):
         self.assertEqual(basket.status, 'Submitted')
 
     def test_basket_total_api(self):
-
         basket = Basket.objects.create(customer_id=1)
         basket.add_product(
             product_id=1,

@@ -1,22 +1,17 @@
-
-"""
-INTEGRATION TESTS, nur kritischen Schnittstellen
-"""
 from decimal import Decimal as D
 from django.test import TestCase
-from rest_framework.test import APIClient
 from rest_framework import status
+from rest_framework.test import APIClient
 from offers.models import Range, Benefit, Condition, ConditionalOffer
 
 
-
 class TestOfferApply(TestCase):
-
-    """wichtige schnittstelle!!!!!!!1"""
+    """Wichtige Schnittstelle"""
 
     def setUp(self):
         self.client = APIClient()
 
+        # Range, Condition, Benefit erstellen
         range_obj = Range.objects.create(name='Range', slug='range')
         condition = Condition.objects.create(
             range=range_obj,
@@ -28,6 +23,8 @@ class TestOfferApply(TestCase):
             type='Percentage',
             value=D('10.00')
         )
+
+        # Offer erstellen
         self.offer = ConditionalOffer.objects.create(
             name='Test Offer',
             slug='test-offer',
@@ -49,7 +46,6 @@ class TestOfferApply(TestCase):
         self.assertEqual(self.offer.num_applications, 1)
 
     def test_offer_anwenden_condition_nicht_erfuellt(self):
-
         """Kein Rabatt wenn Condition nicht erfüllt"""
 
         response = self.client.post(
@@ -62,7 +58,8 @@ class TestOfferApply(TestCase):
         self.assertEqual(float(response.data['discount']), 0.0)
 
     def test_offer_anwenden_suspended(self):
-                self.offer.status = 'Suspended'
+        """Offer darf nicht angewendet werden wenn Suspended"""
+        self.offer.status = 'Suspended'
         self.offer.save()
 
         response = self.client.post(
@@ -75,9 +72,7 @@ class TestOfferApply(TestCase):
         self.assertEqual(float(response.data['discount']), 0.0)
 
 
-
 class TestAvailableOffers(TestCase):
-
     """Verfügbare Offers abrufen"""
 
     def setUp(self):
@@ -85,10 +80,14 @@ class TestAvailableOffers(TestCase):
 
         range_obj = Range.objects.create(name='Range', slug='range')
         condition = Condition.objects.create(
-            range=range_obj, type='Value', value=D('50.00')
+            range=range_obj,
+            type='Value',
+            value=D('50.00')
         )
         benefit = Benefit.objects.create(
-            range=range_obj, type='Percentage', value=D('10.00')
+            range=range_obj,
+            type='Percentage',
+            value=D('10.00')
         )
 
         ConditionalOffer.objects.create(
@@ -108,10 +107,7 @@ class TestAvailableOffers(TestCase):
         self.assertEqual(response.data[0]['status'], 'Open')
 
 
-
-
 class TestOfferCreate(TestCase):
-
     """Offer erstellen"""
 
     def setUp(self):
